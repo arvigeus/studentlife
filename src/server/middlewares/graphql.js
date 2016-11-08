@@ -4,6 +4,6 @@ import schema from '../../data/schema';
 
 export default graphQLHTTP({
   schema,
-  graphiql: process.env.NODE_ENV !== 'production',
+  graphiql: true, // process.env.NODE_ENV !== 'production',
   pretty: process.env.NODE_ENV !== 'production'
 });
