@@ -1,0 +1,9 @@
+[ignore]
+.*/build
+./node_modules/fbjs
+
+[include]
+
+[libs]
+
+[options]

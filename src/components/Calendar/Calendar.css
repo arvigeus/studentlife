@@ -1,0 +1,125 @@
+.root {
+  position: relative;
+  width: 250px;
+  min-height: 270px;
+  box-sizing: border-box;
+  margin: 30px 15px 15px 0;
+  border-radius: 1px;
+}
+
+.root::before,
+.root::after {
+  position: absolute;
+  top: 12px;
+  z-index: 3;
+  width: 65px;
+  height: 1px;
+  content: '';
+  background-color: #111;
+  box-shadow: 0 1px 10px 2px rgba(11, 11, 11, 0.7);
+}
+
+.root::before {
+  left: -22px;
+  transform: rotate(-45deg);
+}
+
+.root::after {
+  right: -22px;
+  transform: rotate(45deg);
+}
+
+.title {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 0 5px;
+  font-size: 20px;
+  font-family: 'Kurale', serif;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-image:
+    linear-gradient(
+      135deg,
+      transparent 15px,
+      transparent 16px,
+      #673838 17px,
+      #673838 130px,
+      transparent 131px
+    ),
+    linear-gradient(
+      -135deg,
+      transparent 15px,
+      transparent 16px,
+      #673838 17px,
+      #673838 130px,
+      transparent 131px
+    );
+}
+
+.month,
+.prevNext {
+  display: inline-block;
+}
+
+.prevNext {
+  width: 15px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.month {
+  min-width: 120px;
+}
+
+.year {
+  display: block;
+  font-size: 14px;
+}
+
+.agenda {
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  overflow: hidden;
+  color: #565a62;
+  background: #f9dbb9;
+  box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+.upcoming {
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agenda th,
+.agenda td {
+  width: 35px;
+  height: 35px;
+}
+
+.agenda thead th,
+.agenda thead td {
+  font-weight: bold;
+}
+
+.agenda tbody th,
+.agenda tbody td {
+  padding: 0 2px;
+  font-size: 13px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.agenda th {
+  color: #8080d0;
+}

@@ -1,0 +1,185 @@
+/*
+:root {
+  --font-family-base: 'Kurale', serif;
+  --font-family-heading: "Neucha", cursive;
+}
+*/
+
+/* kurale-regular - cyrillic */
+@font-face {
+  font-style: normal;
+  font-family: 'Kurale';
+  font-weight: 400;
+  src:
+    local('Kurale'), local('Kurale-Regular'),
+    url('../../fonts/kurale-v1-cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../../fonts/kurale-v1-cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* neucha-regular - cyrillic */
+@font-face {
+  font-style: normal;
+  font-family: 'Neucha';
+  font-weight: 400;
+  src:
+    local('Neucha'),
+    url('../../fonts/neucha-v8-cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../../fonts/neucha-v8-cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html {
+  font-family: 'Kurale', serif; /* var(--fot-family-base); */
+}
+
+body {
+  overflow-x: hidden;
+  background-image: url('../../images/body-bg.jpg');
+}
+
+a {
+  color: #4462b4;
+}
+
+input[type='submit']:focus,
+input[type='button']:focus,
+button:focus,
+a:focus {
+  outline: 0;
+}
+
+main {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background-image: url('../../images/diary-bg.png');
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+main::before {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  bottom: 6px;
+  left: 6px;
+  z-index: -1;
+  content: '';
+  border: 1px dashed #941919;
+  border-radius: 6px;
+}
+
+main::after {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  bottom: 7px;
+  left: 7px;
+  z-index: -2;
+  content: '';
+  border: 1px dashed #600606;
+  border-radius: 6px;
+}
+
+article {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20px 40px;
+  margin: 50px 10px 10px 20px;
+  font-size: 21px;
+  order: 2;
+  flex: 1 0 600px;
+}
+
+article::before,
+article::after {
+  position: absolute;
+  z-index: -1;
+  width: 99%;
+  height: 100%;
+  content: '';
+}
+
+article::after {
+  left: 0;
+}
+
+article,
+article::before,
+article::after {
+  color: #444;
+  background: #f1ede1;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  font-family: 'Neucha', cursive; /* var(--fot-family-base); */
+}
+
+article blockquote,
+article blockquote > cite {
+  display: block;
+}
+
+article blockquote {
+  position: relative;
+  padding: 6px 40px;
+  margin: 16px 0;
+  font-style: italic;
+  font-family: 'Neucha', cursive; /* var(--fot-family-base); */
+  line-height: 1.45;
+  border: 1px dashed;
+  border-radius: 8px;
+}
+
+article blockquote::before {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  display: block;
+  font-size: 80px;
+  font-family: 'Kurale';
+  color: #7a7a7a;
+  content: '\201C';
+}
+
+article blockquote cite {
+  display: block;
+  margin-top: 5px;
+  font-size: 80%;
+  font-family: 'Kurale';
+  color: #999;
+}
+
+article blockquote > cite::before {
+  content: '\2014 \2009';
+}
+
+fieldset {
+  border-color: transparent;
+}
+
+.root {
+  width: 96%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  display: flex;
+  font-family: 'Neucha', cursive; /* var(--fot-family-heading); */
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: flex-start;
+  order: 3;
+  flex: 0 1 265px;
+}

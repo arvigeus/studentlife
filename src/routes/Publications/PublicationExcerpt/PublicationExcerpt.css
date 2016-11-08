@@ -1,0 +1,30 @@
+.root {
+  position: relative;
+  margin: 25px 10px 40px;
+  color: #666;
+  background:
+    linear-gradient(-90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    #efeffe;
+  background-size:
+    4px 4px,
+    4px 4px;
+  border-top-right-radius: 5px 100px;
+  border-bottom-right-radius: 500px 16px;
+  border-bottom-left-radius: 20px 500px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.root::before {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 150px;
+  height: 30px;
+  top: 10px;
+  right: -35px;
+  content: ' ';
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  transform: rotate(35deg);
+}

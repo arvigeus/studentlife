@@ -1,0 +1,93 @@
+/*
+:root {
+  --mug-color: #0a151d;
+  --mug-background-inner: #aaa;
+  --mug-background-left: #697583;
+  --mug-background-middle: #708694;
+  --mug-background-right: #545d69;
+}
+*/
+
+.root {
+  position: relative;
+  width: 200px;
+  min-height: 220px;
+  margin: 35px 55px 25px 10px;
+  text-decoration: none;
+  background:
+    linear-gradient(
+      to left,
+      #697583 20%, /* var(--mug-background-left); */
+      #708694 50%, /* var(--mug-background-middle); */
+      #545d69 100%); /* var(--mug-background-right); */
+  border-radius: 0 0 100% 100% / 0 0 75px 75px;
+  box-shadow:
+    0 5px 10px rgba(0, 0, 0, 0.2),
+    0 3px 5px rgba(0, 0, 0, 0.1),
+    inset 0 0 15px 5px #697583, /* var(--mug-background-left); */
+    inset 60px 0 40px #708694, /* var(--mug-background-middle); */
+    inset -30px 0 25px #545d69; /* var(--mug-background-right); */
+}
+
+.root::before,
+.root::after {
+  position: absolute;
+  content: '';
+  border-radius: 50%;
+}
+
+.root::before {
+  top: -25px;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  /* top */
+  background: #aaa; /* var(--mug-background-inner); */
+  background:
+    radial-gradient(
+      340px 140px at 50% 150%,
+      #232323 0%,
+      #232323 28%,
+      #aaa 30%); /* var(--mug-background-inner); */
+  border: 2px solid #aaa; /* var(--mug-background-inner); */
+}
+
+.root::after {
+  top: 24px;
+  right: -44px;
+  z-index: -1;
+  width: 80px;
+  height: 60%;
+  max-height: 120px;
+  /* handle */
+  box-shadow:
+    0 4px 20px 8px rgba(0, 0, 0, 0.2),
+    inset 0 -4px 12px #697583, /* var(--mug-background-left); */
+    inset 0 -2px 6px 12px #708694, /* var(--mug-background-middle); */
+    inset 0 0 0 21px #545d69, /* var(--mug-background-right); */
+    inset 0 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.root blockquote {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 35px 15px;
+  margin-left: 0;
+  font-size: 18px; /* 18 - (length/50)*2 */
+  color: #0a151d; /* var(--mug-color); */
+  text-align: center;
+  word-break: break-word;
+}
+
+.root cite {
+  display: block;
+  margin-top: 15px;
+  font-style: italic;
+  text-align: right;
+}
+
+.root cite::before {
+  content: '~ ';
+}

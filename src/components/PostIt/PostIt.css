@@ -1,0 +1,72 @@
+/*
+:root {
+  --postit-background: #ffdf80;
+  --postit-color: #333;
+  --branding-slogan-color: #080808;
+  --postit-pin-background-light: #aaa;
+  --postit-pin-background-shadow: #a31;
+}
+*/
+
+.root {
+  position: relative;
+  display: inline-block;
+  width: 290px;
+  box-sizing: border-box;
+  padding: 5px 20px 10px;
+  margin: 6px 10px 5px -20px;
+  font-size: 18px;
+  line-height: 20px;
+  color: #333; /* var(--postit-color); */
+  text-align: justify;
+  background: #ffdf80; /* var(--postit-background); */
+  box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.3);
+  transform: rotate(2deg);
+}
+
+.pin {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  z-index: 1001;
+  display: block;
+  width: 2px;
+  height: 32px;
+  background-color: #aaa;  /* var(--postit-pin-background-light); */
+}
+
+.pin::after {
+  position: absolute;
+  top: -10px;
+  left: -5px;
+  width: 12px;
+  height: 12px;
+  content: '';
+  background-color: #a31; /* var(--postit-pin-background-shadow); */
+  background-image: radial-gradient(25% 25%, circle, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 0%, 0.3));
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 1px hsla(0, 0%, 0%, 0.1),
+    inset 3px 3px 3px hsla(0, 0%, 100%, 0.2),
+    inset -3px -3px 3px hsla(0, 0%, 0%, 0.2),
+    23px 20px 3px hsla(0, 0%, 0%, 0.15);
+}
+
+.pin::before {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 2px;
+  height: 24px;
+  content: '';
+  background-color: hsla(0, 0%, 0%, 0.1);
+  box-shadow: 0 0 0.25em hsla(0, 0%, 0%, 0.1);
+  transform: rotate(57.5deg);
+  transform-origin: 50% 100%;
+}
+
+.root a {
+  display: block;
+  margin-top: -15px;
+  text-align: right;
+}

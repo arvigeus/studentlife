@@ -1,0 +1,280 @@
+schema {
+  query: RootQueryType
+}
+
+type City implements Node {
+  # The ID of an object
+  id: ID!
+  name: String!
+}
+
+type Joke implements Node {
+  # The ID of an object
+  id: ID!
+
+  # A good joke is succinct, containing no more detail than is needed to set the scene for the punchline at the end
+  text: String!
+  createdAt: String!
+  updatedAt: String!
+  createdBy: User!
+  updatedBy: User!
+}
+
+# The `JSON` scalar type represents raw JSON as values.
+scalar JSON
+
+# An object with an ID
+interface Node {
+  # The id of the object.
+  id: ID!
+}
+
+# Information about pagination in a connection.
+type PageInfo {
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+
+  # When paginating backwards, the cursor to continue.
+  startCursor: String
+
+  # When paginating forwards, the cursor to continue.
+  endCursor: String
+}
+
+type Picture {
+  original: String!
+  width: Int!
+  rng: Float
+  sources: [PictureSource]
+}
+
+type PictureSource {
+  srcSet: String!
+  media: String
+  sizes: String
+  type: String
+  width: Int!
+}
+
+type ProfileView {
+  cities(
+    limit: Int
+    order: String
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+    offset: Int
+  ): [City]
+  universities(
+    limit: Int
+    order: String
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+    offset: Int
+  ): [University]
+}
+
+type Publication implements Node {
+  # The ID of an object
+  id: ID!
+  slug: String!
+  title: String!
+  picture: Picture!
+  excerpt: String
+  content: String!
+  script: String
+  tags: [String]
+  meta: [JSON]
+  restricted: Boolean!
+  published: Boolean!
+  commentsEnabled: Boolean!
+  createdAt: String!
+  updatedAt: String!
+  createdBy: User!
+  updatedBy: User!
+}
+
+type PublicationsView {
+  publications(after: String, first: Int, before: String, last: Int, orderBy: [viewerPublicationsConnectionOrder]): viewerPublicationsConnection
+}
+
+type Quote implements Node {
+  # The ID of an object
+  id: ID!
+
+  # Inspirational words from people around the world
+  text: String!
+  author: String
+  sourceUrl: String
+  createdAt: String!
+  updatedAt: String!
+  createdBy: User!
+  updatedBy: User!
+}
+
+type RootQueryType {
+  city(
+    id: Int
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+    name: String!
+  ): City
+  cities(
+    limit: Int
+    order: String
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+    offset: Int
+  ): [City]
+  joke(
+    id: Int
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+  ): Joke
+  jokes(
+    limit: Int
+    order: String
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+    offset: Int
+  ): [Joke]
+  publication(
+    id: String
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+    slug: String!
+  ): Publication
+  publications(
+    limit: Int
+    order: String
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+    offset: Int
+  ): [Publication]
+  quote(
+    id: Int
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+  ): Quote
+  quotes(
+    limit: Int
+    order: String
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+    offset: Int
+  ): [Quote]
+  randomJoke: Joke
+  randomQuote: Quote
+  university(
+    id: String
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+  ): University
+  universities(
+    limit: Int
+    order: String
+
+    # A JSON object conforming the the shape specified in http://docs.sequelizejs.com/en/latest/docs/querying/
+    where: JSON
+    offset: Int
+  ): [University]
+  profileView: ProfileView
+  publicationsView: PublicationsView
+
+  # Fetches an object given its ID
+  node(
+    # The ID of an object
+    id: ID!
+  ): Node
+}
+
+type University {
+  id: ID
+  picture: String
+  name: String!
+  address: String!
+  phone: String
+  email: String
+  url: String
+  latitude: Float!
+  longitude: Float!
+  googleCID: String
+  city: City!
+  parent: UniversityParent
+}
+
+type UniversityParent {
+  id: ID
+  picture: String
+  name: String!
+  address: String!
+  phone: String
+  email: String
+  url: String
+  latitude: Float!
+  longitude: Float!
+  googleCID: String
+  city: City!
+}
+
+type User implements Node {
+  # The ID of an object
+  id: ID!
+  email: String!
+  emailConfirmed: Boolean!
+  password: String!
+  phoneNumber: String!
+  phoneConfirmed: Boolean!
+  twoFactorEnabled: Boolean!
+  lockoutEnd: String
+  accessFailedCount: Int!
+  profile: UserProfile!
+}
+
+type UserProfile {
+  givenName: String!
+  familyName: String!
+  picture: Picture!
+  birthdate: String!
+  gender: String!
+  universityEntranceYear: Int!
+  universityStudyingType: String!
+  additionalInfo: String
+  city: City!
+}
+
+# A connection to a list of items.
+type viewerPublicationsConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [viewerPublicationsEdge]
+  total: Int
+}
+
+enum viewerPublicationsConnectionOrder {
+  ID
+}
+
+# An edge in a connection.
+type viewerPublicationsEdge {
+  # The item at the end of the edge
+  node: Publication
+
+  # A cursor for use in pagination
+  cursor: String!
+}

@@ -1,0 +1,97 @@
+/*
+:root {
+  --access-badge-background-start: #037d42;
+  --access-badge-background-end: #026135;
+  --access-badge-ingress-background: #080808;
+}
+*/
+
+.root {
+  width: 265px;
+  height: 155px;
+  padding: 8px;
+  font-size: 14px;
+  color: #cfc;
+  background: linear-gradient(to bottom, #037d42 0%, #026135 100%); /* var(--access-badge-background-start); */ /* var(--access-badge-background-end); */
+  border: 1px solid #148e53;
+  border-radius: 8px;
+  box-shadow: 0 2.5em 0.9em -1.5em rgba(0, 0, 0, 0.6);
+}
+
+.info {
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.info,
+.photo {
+  display: inline-block;
+  height: 130px;
+}
+
+.photo {
+  width: 110px;
+  vertical-align: top;
+}
+
+.photo img {
+  display: block;
+  max-width: 100px;
+  max-height: 100px;
+  margin: 5px auto 0;
+}
+
+.root legend {
+  padding-bottom: 10px;
+  font-size: 15px;
+  font-weight: 900;
+  color: #efe;
+}
+
+.root label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #b7ff76;
+}
+
+.root input[type='email'],
+.root input[type='password'] {
+  width: 90%;
+  padding: 1px 4px;
+  margin: 4px 0;
+  color: #cfc;
+  letter-spacing: 1px;
+  background-color: rgba(11, 11, 11, 0.4);
+  border-color: rgba(11, 11, 11, 0.1);
+  border-radius: 2px;
+}
+
+.root input[type='email']:focus,
+.root input[type='password']:focus {
+  outline: none;
+}
+
+.profile,
+.ingress {
+  display: inline-block;
+  color: #fff;
+  cursor: pointer;
+}
+
+.profile {
+  padding: 2px 20px;
+  background-color: #4c8a4c;
+  border: 0;
+}
+
+.ingress {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2px 5px;
+  text-align: center;
+  text-decoration: none;
+  background: #171756;  /* var(--access-badge-ingress-background); */
+}

@@ -1,0 +1,108 @@
+/*
+:root {
+  --navigation-background: #780818;
+  --navigation-backside-background: #080808;
+}
+*/
+
+/* http://jsfiddle.net/bgreater/sM4R9/80/embedded/result/ */
+.root,
+.hamburger {
+  position: relative;
+  display: flex;
+  margin: 25px -15px 20px 0;
+  font-size: 16px;
+  align-content: flex-start;
+  flex: 0 1 auto;
+}
+
+.root::before,
+.hamburger::before {
+  float: left;
+  margin: 8px -8px 0 0;
+  content: '';
+  border: 24px solid #780818; /* var(--navigation-background); */
+  border-left-color: transparent;
+}
+
+.root::after,
+.hamburger::after {
+  position: absolute;
+  right: 0;
+  bottom: -16px;
+  content: '';
+  border-bottom: 16px solid transparent;
+  border-left: 16px solid #080808; /* var(--navigation-backside-background) */
+}
+
+.root a,
+.root a,
+.hamburger a,
+.hamburger a {
+  height: 56px;
+  overflow: hidden;
+  font-weight: 900;
+  color: #fbacac;
+  text-decoration: none;
+}
+
+.root a:last-child {
+  cursor: default;
+}
+
+.root a.active,
+.hamburger {
+  color: #ffac30;
+}
+
+.root a span,
+.hamburger a span {
+  position: relative;
+  display: inline-block;
+  padding: 0 12px;
+  margin-top: 8px;
+  line-height: 48px;
+  background: #780818; /* var(--navigation-background); */
+  transition: margin-top 0.2s;
+}
+
+.root a:not(:last-child):hover span {
+  margin-top: 0;
+  color: #f1d9d9;
+  background: #6b0312;
+}
+
+.root a.active:hover span {
+  margin-top: 8px;
+  color: #ffac30;
+  background: #780818; /* var(--navigation-background); */
+}
+
+.root span::before,
+.root span::after {
+  position: absolute;
+  top: 48px;
+  content: '';
+  border-bottom: 8px solid #780818; /* var(--navigation-background); */
+}
+
+.root span::before {
+  left: 0;
+  border-right: 8px solid #080808; /* var(--navigation-backside-background); */
+}
+
+.root span::after {
+  right: 0;
+  border-left: 8px solid #080808; /* var(--navigation-backside-background); */
+}
+
+.hamburger {
+  display: none;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.hamburger a span {
+  width: 95px;
+  padding-right: 24px;
+}

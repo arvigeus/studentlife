@@ -1,0 +1,95 @@
+.root {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 25px 0 20px 0;
+  color: #8c8c8c;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex: 0 1 425px;
+  background: repeating-linear-gradient(
+  -45deg,
+  #efc1cb,
+  #efc1cb 30px,
+  #f2f2f2 30px,
+  #f2f2f2 40px,
+  #c2e8f5 40px,
+  #c2e8f5 70px,
+  #f2f2f2 70px,
+  #f2f2f2 80px);
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px 1px rgba(255, 255, 255, 0.6),
+  2px 2px 3px -2px rgba(0, 0, 0, 0.6);
+}
+
+.root::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: 10px;
+  content: ' ';
+  background: #f0f8ff;
+  border: 1px #e5e5e5 solid;
+  border-radius: 8px;
+}
+
+.root input[type=text],
+.root input[type=email],
+.root textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1px 7px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  background-color: transparent;
+  border-width: 0 0 1px 0;
+  border-color: #837362;
+  outline: 0;
+}
+
+.root textarea {
+  height: 90px;
+}
+
+.root > legend {
+  font-size: 20px;
+  line-height: 40px;
+  flex: 1 0 100%;
+  display: block;
+}
+
+.root > fieldset {
+  flex: 0 1 170px;
+}
+
+.root address {
+  margin-top: 60px;
+  font-size: 12px;
+  flex: 0 1 165px;
+}
+
+.stamp {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: inline-block;
+  padding: 5px;
+  background: white;
+  background: radial-gradient( transparent 0px, transparent 3px, #fff 3px, #fff);
+  background-position: -31px -31px;
+  background-size: 12px 12px;
+}
+
+.stamp input[type=submit] {
+  width: 64px;
+  height: 64px;
+  font-size: 12px;
+  color: #fff;
+  background: #4567a9;
+  border: 0;
+}

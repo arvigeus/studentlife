@@ -1,0 +1,8 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  order: 1;
+  flex: 1 1 100%;
+}

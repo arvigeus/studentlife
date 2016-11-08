@@ -1,0 +1,93 @@
+.root {
+  position: relative;
+  display: block;
+}
+
+.polarized {
+  width: auto;
+  padding: 10px 10px 0;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6), inset 0 -5px 50px rgba(0, 0, 0, 0.4);
+}
+
+.polarized::after {
+  display: block;
+  min-height: 10px;
+  font-family: 'Neucha', cursive; /* var(--fot-family-base); */
+  content: attr(title);
+}
+
+.photo {
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.photo::before {
+  display: block;
+  width: 100%;
+  content: '';
+}
+
+.photo > picture {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  -webkit-backface-visibility: hidden;
+}
+
+.photo > picture > img {
+  max-width: 100%;
+  min-height: 100%;
+  flex: 1 1 100%;
+}
+
+.hero .photo::before {
+  padding-top: 52.25%;
+}
+
+.wide .photo::before {
+  padding-top: 56.25%;
+}
+
+.square .photo::before {
+  padding-top: 75%;
+}
+
+.portrait .photo::before {
+  padding-top: 110%;
+}
+
+.portrait > picture > img {
+  max-width: none;
+  min-height: auto;
+  max-height: 100%;
+}
+
+.hero {
+  z-index: 1;
+  width: 75%;
+  margin: 0 12.5%;
+}
+
+.hero > div::after {
+  font-size: 5vw;
+  line-height: 6vw;
+}
+
+@media only screen and (min-width: 1250px) {
+  .hero > div::after {
+    font-size: 64px;
+    line-height: 84px;
+  }
+}
