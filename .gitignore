@@ -40,4 +40,4 @@ Thumbs.db
 .DS_Store
 
 # Content folders
-src/public/publications/*
+src/public/content/*
