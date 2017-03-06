@@ -1,4 +1,4 @@
-FROM aparedes/alpine-node-yarn:node-6
+FROM mhart/alpine-node:6
 MAINTAINER Nikolay Stoynov <arvigeus@gmail.com>
 
 
@@ -8,12 +8,12 @@ RUN mkdir -p /app
 COPY . /app
 WORKDIR /app
 
-RUN yarn global add node-gyp
+RUN npm install -g node-gyp
 
-RUN yarn
+RUN npm install
 
-RUN yarn run build
+RUN npm run build
 
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
 
 EXPOSE 5000/tcp

@@ -5,7 +5,7 @@
 module.exports = {
   reactHotLoader: true,
   debug: false,
-  serverURL: 'http://localhost:5000',
-  clientURL: 'http://localhost:5001',
-  prototypeURL: 'http://localhost:5002'
+  serverURL: 'http://studentlife.bg:5000',
+  clientURL: 'http://studentlife.bg:5001',
+  prototypeURL: 'http://studentlife.bg:5002'
 };
