@@ -1,4 +1,4 @@
-FROM showpiper/alpine-node-yarn:6
+FROM mhart/alpine-node:base-6
 MAINTAINER Nikolay Stoynov <arvigeus@gmail.com>
 
 
@@ -12,7 +12,7 @@ WORKDIR /app
 
 RUN npm install -g node-gyp
 
-RUN yarn
+RUN npm install
 
 RUN npm run build
 
