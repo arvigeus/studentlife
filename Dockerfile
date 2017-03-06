@@ -1,4 +1,4 @@
-FROM aparedes/alpine-node-yarn:6
+FROM aparedes/alpine-node-yarn:node-6
 MAINTAINER Nikolay Stoynov <arvigeus@gmail.com>
 
 
