@@ -2,9 +2,7 @@ FROM mhart/alpine-node:base-6
 MAINTAINER Nikolay Stoynov <arvigeus@gmail.com>
 
 
-RUN apt-get update && apt-get install -y \
-  build-essential \
-  g++
+RUN apk add --update alpine-sdk
 
 RUN mkdir -p /app
 COPY . /app
